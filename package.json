@@ -46,7 +46,9 @@
     "prepublishOnly": "npm run babel",
     "postpublish": "git clean -f && git checkout .",
     "cdnify": "grabthar-cdnify --cdn=https://www.paypalobjects.com",
-    "postinstall": "npm_config_registry=https://npm.paypal.com npm install @paypalcorp/web --no-save --proxy='null' --https-proxy='null' || echo 'Unable to install cdnx cli tools'"
+    "postinstall": "npm_config_registry=https://npm.paypal.com npm install @paypalcorp/web --no-save --proxy='null' --https-proxy='null' || echo 'Unable to install cdnx cli tools'",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "peerDependencies": {
     "express": "^4.16.3"
@@ -71,17 +73,19 @@
     "preact-render-to-string": "^5.1.4",
     "strict-merge": "^1.0.1",
     "typed-graphqlify": "^2.2.3",
-    "zalgo-promise": "^1.0.28"
+    "zalgo-promise": "^1.0.28",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
     "express": "^4.16.3",
     "flow-bin": "0.135.0",
     "grabthar-release": "^1.0.8",
-    "grumbler-scripts": "^3.0.83",
+    "grumbler-scripts": "^5.0.0",
     "post-robot": "^10.0.13",
     "sync-browser-mocks": "^2.0.8",
     "webpack-mem-compile": "^1.0.2"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "snyk": true
 }
